@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    prod:
+        build: .
+        ports:
+          - 9002:9000
+        restart: always
+    dev:
+        build: .
+        command: go run /go/src/app/main.go
+        volumes:
+          - ./src/app:/go/src/app
+        ports:
+          - 9001:9000
+        restart: always
